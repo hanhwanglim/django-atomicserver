@@ -1,17 +1,31 @@
 [project]
 name = "django-atomicserver"
 version = "0.1.0"
-description = "Add your description here"
+description = "An atomic server for allowing rollbacks via endpoints."
 readme = "README.md"
 authors = [
-    { name = "Han Hwang Lim", email = "hanhwanglim@gmail.com" }
+    { name = "Han Hwang Lim", email = "han.lim@xelix.com" }
 ]
 requires-python = ">=3.10"
-dependencies = []
-
-[project.scripts]
-django-atomicserver = "django_atomicserver:main"
+dependencies = [
+    "django>=4.2",
+]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "django-stubs[compatible-mypy]>=1.9.0",
+    "mypy>=1.14.1",
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.4",
+    "pytest-django>=4.9.0",
+    "ruff>=0.8.4",
+]
+
+[tool.mypy]
+namespace_packages = false
+exclude = ["examples/*", "tests/*"]
+strict = true
