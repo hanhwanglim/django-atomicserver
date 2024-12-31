@@ -29,3 +29,6 @@ dev = [
 namespace_packages = false
 exclude = ["examples/*", "tests/*"]
 strict = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/atomicserver"]
